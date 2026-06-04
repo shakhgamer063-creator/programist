@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshMart - Online Supermarket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="currentColor"/>
+                        <path d="M12 16L20 10L28 16V28C28 28.5304 27.7893 29.0391 27.4142 29.4142C27.0391 29.7893 26.5304 30 26 30H14C13.4696 30 12.9609 29.7893 12.5858 29.4142C12.2107 29.0391 12 28.5304 12 28V16Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>FreshMart</span>
+                </div>
+                
+                <div class="search-bar">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 19L14.65 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search for products...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="icon-button" id="cartButton">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 2L7.17 4H3C1.9 4 1 4.9 1 6V19C1 20.1 1.9 21 3 21H21C22.1 21 23 20.1 23 19V6C23 4.9 22.1 4 21 4H16.83L15 2H9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Categories Navigation -->
+            <nav class="categories-nav">
+                <button class="category-btn active" data-category="all">
+                    <span class="category-icon">🛒</span>
+                    <span>All Products</span>
+                </button>
+                <button class="category-btn" data-category="fruits">
+                    <span class="category-icon">🍎</span>
+                    <span>Fruits</span>
+                </button>
+                <button class="category-btn" data-category="vegetables">
+                    <span class="category-icon">🥕</span>
+                    <span>Vegetables</span>
+                </button>
+                <button class="category-btn" data-category="dairy">
+                    <span class="category-icon">🥛</span>
+                    <span>Dairy</span>
+                </button>
+                <button class="category-btn" data-category="bakery">
+                    <span class="category-icon">🍞</span>
+                    <span>Bakery</span>
+                </button>
+                <button class="category-btn" data-category="meat">
+                    <span class="category-icon">🥩</span>
+                    <span>Meat</span>
+                </button>
+                <button class="category-btn" data-category="beverages">
+                    <span class="category-icon">🥤</span>
+                    <span>Beverages</span>
+                </button>
+                <button class="category-btn" data-category="snacks">
+                    <span class="category-icon">🍿</span>
+                    <span>Snacks</span>
+                </button>
+            </nav>
+
+            <!-- Shelves Section -->
+            <section class="shelves-section">
+                <div class="section-header">
+                    <h2 id="sectionTitle">All Products</h2>
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <rect x="2" y="2" width="7" height="7" rx="1"/>
+                                <rect x="11" y="2" width="7" height="7" rx="1"/>
+                                <rect x="2" y="11" width="7" height="7" rx="1"/>
+                                <rect x="11" y="11" width="7" height="7" rx="1"/>
+                            </svg>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <rect x="2" y="3" width="16" height="3" rx="1"/>
+                                <rect x="2" y="8.5" width="16" height="3" rx="1"/>
+                                <rect x="2" y="14" width="16" height="3" rx="1"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Shelf Container -->
+                <div class="shelf-container" id="shelfContainer">
+                    <!-- Shelves will be dynamically generated -->
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        <path d="M35 50L45 60L65 40" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+                    </svg>
+                    <h3>No products found</h3>
+                    <p>Try adjusting your search or filters</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Fixed Shopping Cart -->
+    <div class="cart-container" id="cartContainer">
+        <button class="cart-toggle" id="cartToggle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 2L7.17 4H3C1.9 4 1 4.9 1 6V19C1 20.1 1.9 21 3 21H21C22.1 21 23 20.1 23 19V6C23 4.9 22.1 4 21 4H16.83L15 2H9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+            <span class="cart-total">$0.00</span>
+        </button>
+
+        <div class="cart-dropdown" id="cartDropdown">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <button class="close-cart" id="closeCart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <path d="M27 7L21.68 14H10C7.8 14 6 15.8 6 18V61C6 63.2 7.8 65 10 65H70C72.2 65 74 63.2 74 61V18C74 15.8 72.2 14 70 14H58.32L53 7H27Z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+                    </svg>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (10%):</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">
+                    <span>Checkout</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
+            <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span id="toastMessage">Item added to cart</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
